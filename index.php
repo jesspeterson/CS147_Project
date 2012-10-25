@@ -28,9 +28,57 @@
 		
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
 	}
-
+	
 	setupMap();
 </script>
-<div id="map_canvas" style="width:320px; height:320px;"></div> <!-- change width and height here -->
+
+<form id="wikiSearch" action="search.php">
+	<input id="searchBar" type="search" placeholder="Search Wikipedia" />
+</form>
+
+<div id="map_canvas" style="width:320px; height:220px;"></div> <!-- change width and height here -->
+
+<!-- <form id="pinList" action="fact.php">
+	<select onchange="submit()">
+		<optgroup label="At this location:">
+			<option value="0">Hoover Tower - tallest building on Stanford campus</option>
+			<option value="1">Condoleeza Rice - has office in Hoover Tower</option>
+			<option value="2">Hoover Institution - public policy think-tank based here</option>
+			<option value="3">Herbert Hoover - namesake of Hoover tower</option>
+		</optgroup>
+	</select>
+</form> -->
+
+<div id="slider" class="swipe">
+	<ul>
+		<li style="display:block;"><div><h2>Hoover Tower</h2><p>Completed in 1941, Hoover Tower is the tallest building on the Stanford campus at 285 feet.</p></div></li>
+		<li style="display:none;"><div>Condoleeza Rice</div></li>
+		<li style="display:none;"><div>Hoover Institution</div></li>
+		<li style="display:none;"><div>Herbert Hoover</div></li>
+	</ul>
+</div>
+
+<nav>
+    <span id='position'><em class='on'>&bull;</em><em>&bull;</em><em>&bull;</em><em>&bull;</em></span>
+</nav>
+
+<script src='swipe.js'></script>
+<script>
+	var slider, bullets;
+	$(document).ready(function(){
+	 	slider = new Swipe(document.getElementById('slider'), {
+      	callback: function(e, pos) {
+        
+        var i = bullets.length;
+        while (i--) {
+          bullets[i].className = ' ';
+        }
+        bullets[pos].className = 'on';
+
+      }
+    }),
+    bullets = document.getElementById('position').getElementsByTagName('em');
+	});
+</script>
 
 <?php include('footer.php'); ?>
