@@ -51,10 +51,10 @@
 
 <div id="slider" class="swipe">
 	<ul>
-		<li style="display:block;"><div><h2>Hoover Tower</h2><p>Completed in 1941, Hoover Tower is the tallest building on the Stanford campus at 285 feet.</p></div></li>
-		<li style="display:none;"><div>Condoleeza Rice</div></li>
-		<li style="display:none;"><div>Hoover Institution</div></li>
-		<li style="display:none;"><div>Herbert Hoover</div></li>
+		<li style="display:block;"><div><h2><a href="fact.php">Hoover Tower</a></h2><p>Completed in 1941, Hoover Tower is the tallest building on the Stanford campus at 285 feet.</p></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Condoleeza Rice</a></h2></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Hoover Institution</a></h2></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Herbert Hoover</a></h2></div></li>
 	</ul>
 </div>
 
@@ -80,5 +80,6 @@
     bullets = document.getElementById('position').getElementsByTagName('em');
 	});
 </script>
+<p><a href="add.php"><b>Add</b></a> <a href="settings.php"><b>Settings</b></a></p>
 
 <?php include('footer.php'); ?>
