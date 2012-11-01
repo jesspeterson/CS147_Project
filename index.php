@@ -4,13 +4,13 @@
 <script type="text/javascript">
   function setupMap() {
 	var lat;
-	var longi;
+	var long;
 	function locationSuccess(position) { //successful location set up
-		lat = position.coords.latitude;
-		longi = position.coords.longitude;
-		
-		var mapOptions = {
-			center: new google.maps.LatLng(lat, longi),
+		lat = position.coords.latitude; //my location
+		long = position.coords.longitude;
+
+		var mapOptions = { //map tions
+			center: new google.maps.LatLng(lat, long),
 			zoom: 16,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			streetViewControl: false,
@@ -18,8 +18,29 @@
 			zoomControl: false
 		};
 		
-		var map = new google.maps.Map(document.getElementById("map_canvas"),
+		var map = new google.maps.Map(document.getElementById("map_canvas"), //create map
 			mapOptions);
+			
+		$.ajax({ //look up facts
+		  type: "POST",
+		  url: "nearby_facts.php",
+		  data: { lat: lat, long: long }
+		}).done(function( facts ) {
+			var facts = jQuery.parseJSON(facts);
+			for (var key in facts) {
+				var fact = facts[key];
+				place_marker(fact["lat"],fact["long"]);
+			}
+		});
+
+		function place_marker(lat,long){
+			var latlong = new google.maps.LatLng(lat, long);
+			var marker = new google.maps.Marker({
+			    position: latlong, 
+			    map: map, 
+			    title:"You are here!"
+			});
+		}
 	}
 	
 	function locationFail() { //failed location look up
@@ -31,6 +52,7 @@
 	
 	setupMap();
 </script>
+
 
 <form id="wikiSearch" action="search.php">
 	<input id="searchBar" type="search" placeholder="Search Wikipedia" />
