@@ -40,6 +40,12 @@
 			$facts[$address][$id]["long"] = $long;
 			$facts[$address][$id]["fact"] = $row["fact"];
 			$facts[$address][$id]["address"] = $address;
+			$facts[$address][$id]["source"] = $row["source"];
+			$facts[$address][$id]["id"] = $row["id"];
+			
+			
+			// $facts[$address][$id]["id"] = $row["id"];
+			
 		}			
 	}
 	// print $my_lat;

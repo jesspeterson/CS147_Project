@@ -86,9 +86,9 @@
 			// 			console.log("length"+address.length);
 			// while(i != getPropertyCount(address)){
 				if(i==0){
-					$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
+					$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
 				}else {
-					$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
+					$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
 				}
 				i++;
 			// }
