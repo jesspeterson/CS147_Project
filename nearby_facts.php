@@ -15,8 +15,22 @@
 		$id = $row["id"];
 		$lat = $row["lat"];
 		$long = $row["long"];
-		if( (floatval(substr($lat,0,7) == floatval(substr($my_lat,0,7)))) && 
-			(floatval(substr($long,0,7) == floatval(substr($my_long,0,7)))) ){
+		// print $row["address"];
+		// print "+";
+		// print floatval(substr($lat,0,4));
+		// print "+";
+		// print floatval(substr($my_lat,0,4));
+		// print "+";
+		// 
+		// print floatval(substr($long,0,4));
+		// print "+";
+		// 
+		// print floatval(substr($my_long,0,4));
+		// print "+";
+		
+		// print "<br />";
+		if( (floatval(substr($lat,0,4)) == floatval(substr($my_lat,0,4))) && 
+			(floatval(substr($long,0,4)) == floatval(substr($my_long,0,4))) ){
 			// print 123;
 			// $latlongkey = (string)(substr($lat,0,6)+","+substr($long,0,6));
 			if(!array_key_exists($address,$facts)){
