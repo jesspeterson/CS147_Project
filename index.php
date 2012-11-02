@@ -2,7 +2,8 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
 <script type="text/javascript">
-  function setupMap() {
+  var addresses;
+function setupMap() {
 	var lat;
 	var long;
 	function locationSuccess(position) { //successful location set up
@@ -25,29 +26,60 @@
 		  type: "POST",
 		  url: "nearby_facts.php",
 		  data: { lat: lat, long: long }
-		}).done(function( facts ) {
-			var facts = jQuery.parseJSON(facts);
-			for (var key in facts) {
-				var fact = facts[key];
-				place_marker(fact["lat"],fact["long"]);
+		}).done(function( addresses ) {
+			// console.log(facts);
+			
+			addresses = jQuery.parseJSON(addresses);
+			console.log(addresses);
+			
+			for (var key in addresses) {
+				var address = addresses[key];
+				for(var sub_key in address){ //this loop is designed to just grab the first address and then break
+					place_marker(address[sub_key]["lat"],address[sub_key]["long"],address[sub_key]["address"]);
+					break;					
+				}
 			}
 		});
 
-		function place_marker(lat,long){
-			var latlong = new google.maps.LatLng(lat, long);
-			var marker = new google.maps.Marker({
-			    position: latlong, 
-			    map: map, 
-			    title:"You are here!"
-			});
+		function place_marker(lat,long,address){
+				// console.log("placing");
+				var latlong = new google.maps.LatLng(lat, long);
+				var marker = new google.maps.Marker({
+				    position: latlong, 
+				    map: map, 
+				    title:"",
+					address:address,
+					addresses:addresses
+				});
+				// console.log(address);
+				google.maps.event.addListener(marker, 'click', showFacts);
 		}
 	}
 	
-	function locationFail() { //failed location look up
-		alert('Oops, could not find you.');
-	}
+		function locationFail() { //failed location look up
+			alert('Oops, could not find you.');
+		}
 		
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
+}
+	
+	function showFacts(e){
+	    // addresses = this.addresses;
+		console.log(addresses);
+		$("#slider ul").html(""); //clear out previous
+		address = addresses[this.address];
+		var i = 0;
+		for(key in address){
+			if(i==address.length){
+				$("#slider ul").append("<li style='display:block;'><div><h2><a href=''>"+this.address+"</a></h2><p>"+12+"</p></div></li>")
+			}else {
+				$("#slider ul").append("<li style='display:none;'><div><h2><a href=''>"+this.address+"</a></h2><p>"+12+"</p></div></li>")
+			}
+			fact = address[key];
+			i++;
+		}
+		
+		console.log(this.address);
 	}
 	
 	setupMap();
@@ -73,10 +105,17 @@
 
 <div id="slider" class="swipe">
 	<ul>
+<<<<<<< HEAD
 		<li style="display:block;"><div><a href="fact.php?id=666"><p>Completed in 1941, <strong>Hoover Tower</strong> is the tallest building on the Stanford campus at 285 feet.</p></a></div></li>
 		<li style="display:none;"><div><a href="fact.php?id=667">Former Secretary of State <strong>Condoleeza Rice</strong> has an office on the tenth floor of Hoover Tower.</a></div></li>
 		<li style="display:none;"><div><a href="fact.php?id=668">The <strong>Hoover Institution</strong>, a conservate public policy think tank, is housed partly in Hoover Tower.</a></div></li>
 		<li style="display:none;"><div><a href="fact.php?id=669">Dissident Russian writer <strong>Aleksandr Solzhenitsyn</strong> lived on the 11th floor of Hoover Tower while exiled.</a></div></li>
+=======
+		<li style="display:block;"><div><h2><a href="fact.php">Hoover Tower</a></h2><p>C</p></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Condoleeza Rice</a></h2></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Hoover Institution</a></h2></div></li>
+		<li style="display:none;"><div><h2><a href="fact.php">Herbert Hoover</a></h2></div></li>
+>>>>>>> facts now grouped by addresses. slider thing now almost works.
 	</ul>
 </div>
 
