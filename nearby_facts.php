@@ -3,12 +3,12 @@
 	$query = "SELECT * FROM wikitour";
 	$result = mysql_query($query);
 	
-	$my_lat = $_REQUEST['lat'];
-	$my_long = $_REQUEST['long'];
-	
+	// $my_lat = $_REQUEST['lat'];
+	// $my_long = $_REQUEST['long'];
+	$my_lat = "37.4307151";
+	$my_long = "-122.1733189";
 	// $my_lat = "37.41935088358339";//$_REQUEST['lat'];
 	// $my_long = "-122.16894757738555";//$_REQUEST['long'];
-	
 	$facts = array();
 	while ($row = mysql_fetch_assoc($result)) {
 		$address = $row["address"];
@@ -28,6 +28,7 @@
 			$facts[$address][$id]["address"] = $address;
 		}			
 	}
-
+	// print $my_lat;
+	// print $my_long;
 	print json_encode($facts);
 ?>

@@ -12,7 +12,6 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
 	<link rel="apple-touch-icon" href="appicon.png" />
 	<link rel="apple-touch-startup-image" sizes="640x960" href="startupRetina.png">
-
 </head> 
 
 
