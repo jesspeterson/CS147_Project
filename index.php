@@ -105,10 +105,10 @@
 
 <div id="slider" class="swipe">
 	<ul>
-		<li style="display:block;"><div><a href="fact.php?id=666"><p>Completed in 1941, <strong>Hoover Tower</strong> is the tallest building on the Stanford campus at 285 feet.</p></a></div></li>
-		<li style="display:none;"><div><a href="fact.php?id=667">Former Secretary of State <strong>Condoleeza Rice</strong> has an office on the tenth floor of Hoover Tower.</a></div></li>
-		<li style="display:none;"><div><a href="fact.php?id=668">The <strong>Hoover Institution</strong>, a conservative public policy think tank, is housed partly in Hoover Tower.</a></div></li>
-		<li style="display:none;"><div><a href="fact.php?id=669">Dissident Russian writer <strong>Aleksandr Solzhenitsyn</strong> lived on the 11th floor of Hoover Tower while exiled.</a></div></li>
+		<li style="display:block;"><div><a href="fact.php?id=666"><p>Welcome to Wikitour! Click a pin to start exploring.</p></a></div></li>
+		<!-- <li style="display:none;"><div><a href="fact.php?id=667">Former Secretary of State <strong>Condoleeza Rice</strong> has an office on the tenth floor of Hoover Tower.</a></div></li>
+			<li style="display:none;"><div><a href="fact.php?id=668">The <strong>Hoover Institution</strong>, a conservative public policy think tank, is housed partly in Hoover Tower.</a></div></li>
+			<li style="display:none;"><div><a href="fact.php?id=669">Dissident Russian writer <strong>Aleksandr Solzhenitsyn</strong> lived on the 11th floor of Hoover Tower while exiled.</a></div></li> -->
 	</ul>
 </div>
 
