@@ -60,6 +60,19 @@
 		alert('Oops, could not find you.');
 	}
 	
+	function getPropertyCount(obj) {
+	    var count = 0,
+	        key;
+
+	    for (key in obj) {
+	        if (obj.hasOwnProperty(key)) {
+	            count++;
+	        }
+	    }
+
+	    return count;
+	}
+	
 	function showFacts(e){
 		// console.log(addresses);
 		$("#slider ul").html(""); //clear out previous
@@ -71,14 +84,15 @@
 			// console.log("fact:");
 			// 			console.log(fact);
 			// 			console.log("length"+address.length);
-			// if(i==address.keys(a).length){
-				$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
-				// console.log(012);
-			// }else {
-				// $("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
-				// console.log(013);
-			// }
-			i++;
+			while(i != getPropertyCount(address)){
+				if(i==0){
+					$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
+				}else {
+					$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+this.id+"'><p>"+fact['fact']+"</p></a></div></li>")
+				}
+				i++;
+			}
+		
 		}
 	}
 	
