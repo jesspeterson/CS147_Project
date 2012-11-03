@@ -120,7 +120,7 @@
 	<input id="searchBar" type="search" placeholder="Search Wikipedia" />
 </form>
 
-<div id="map_canvas" style="width:320px; height:220px;"></div> <!-- change width and height here -->
+<div id="map_canvas" style="width:320px; height:288px;"></div> <!-- change width and height here -->
 
 <!-- <form id="pinList" action="fact.php">
 	<select onchange="submit()">

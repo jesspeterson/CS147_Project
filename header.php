@@ -9,9 +9,12 @@
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
-	<link rel="apple-touch-icon" href="appicon.png" />
-	<link rel="apple-touch-startup-image" sizes="640x960" href="startupRetina.png">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+	<link rel="apple-touch-icon" sizes="57x57" href="appicon.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="appiconretina.png" />
+	<link rel="apple-touch-startup-image" sizes="320x480" href="startup.png" />
+	<link rel="apple-touch-startup-image" sizes="640x960" href="startupRetina.png" />
+	<link rel="apple-touch-startup-image" sizes="640x1136" href="startuptall.png" />
 
 </head> 
 
