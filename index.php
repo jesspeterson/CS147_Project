@@ -1,7 +1,31 @@
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
+
+<form id="wikisearch" action="search.php">
+	<input id="searchfield" type="search" placeholder="Search Wikipedia" onsubmit="preventDefault();" />
+</form>
+
+<ul id="wikisearch_results" data-role="listview" style="display:none;">
+	<li><a href="acura.html">Acura</a></li>
+	<li><a href="audi.html">Audi</a></li>
+	<li><a href="bmw.html">BMW</a></li>
+</ul>
+
+<div id="map_canvas" style="width:320px; height:288px;"></div> <!-- change width and height here -->
+
+<div id="slider" class="swipe">
+	<ul>
+		<li style="display:block;"><div><a href="fact.php?id=666"><p>Welcome to Wikitour! Click a pin to start exploring.</p></a></div></li>
+	</ul>
+</div>
+
+<nav>
+    <span id='position'><em class='on'>&bull;</em><em>&bull;</em><em>&bull;</em><em>&bull;</em></span>
+</nav>
 <script type="text/javascript">
+$(document).ready(function(){
+  //the following sets up the map, pins, etc.
   var addresses;
   var map;
 	function setupMap() {
@@ -31,7 +55,7 @@
 		  data: { lat: lat, long: long }
 		}).done(function( addresses_json ) {
 			addresses = jQuery.parseJSON(addresses_json);
-			console.log(addresses);
+			// console.log(addresses);
 			for (var key in addresses) {
 				var address = addresses[key];
 				for(var sub_key in address){ //this loop is designed to just grab the first address and then break
@@ -81,18 +105,12 @@
 		var i = 0;
 		for(key in address){
 			fact = address[key];
-			// console.log("fact:");
-			// 			console.log(fact);
-			// 			console.log("length"+address.length);
-			// while(i != getPropertyCount(address)){
 				if(i==0){
 					$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
 				}else {
 					$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
 				}
 				i++;
-			// }
-		
 		}
 		
 		var slider, bullets;
@@ -113,39 +131,40 @@
 	}
 	
 	setupMap();
+	
+	//this is the code to setup the wikisearch, autocompletion, etc
+	function get_results(searchterm){
+		var results;
+		$.ajax({ //look up facts
+			  type: "GET",
+			  url: "search.php",
+			  data: { "searchterm": searchterm,}
+			}).done(function( json_results ) {
+				results = jQuery.parseJSON(json_results);
+				results = results["query"]["search"];
+
+				$("#wikisearch_results").html("");
+				$("#wikisearch_results").css("display","block");
+				for (key in results){
+					result = results[key]["title"];
+					$("#wikisearch_results").append("<li><a href='acura.html'>"+result+"</a></li>")
+				}
+				$("#wikisearch_results").listview('refresh');
+				
+			});
+	}
+	
+	$('#searchfield').keyup(function() {
+		get_results($('#searchfield').val());
+	});
+	
+	$('#searchfield').blur(function() {
+		$("#wikisearch_results").css("display","none");
+	});
+	
+	// get_results("hoover");
+});
 </script>
-
-
-<form id="wikiSearch" action="search.php">
-	<input id="searchBar" type="search" placeholder="Search Wikipedia" />
-</form>
-
-<div id="map_canvas" style="width:320px; height:288px;"></div> <!-- change width and height here -->
-
-<!-- <form id="pinList" action="fact.php">
-	<select onchange="submit()">
-		<optgroup label="At this location:">
-			<option value="0">Hoover Tower - tallest building on Stanford campus</option>
-			<option value="1">Condoleeza Rice - has office in Hoover Tower</option>
-			<option value="2">Hoover Institution - public policy think-tank based here</option>
-			<option value="3">Herbert Hoover - namesake of Hoover tower</option>
-		</optgroup>
-	</select>
-</form> -->
-
-<div id="slider" class="swipe">
-	<ul>
-		<li style="display:block;"><div><a href="fact.php?id=666"><p>Welcome to Wikitour! Click a pin to start exploring.</p></a></div></li>
-		<!-- <li style="display:none;"><div><a href="fact.php?id=667">Former Secretary of State <strong>Condoleeza Rice</strong> has an office on the tenth floor of Hoover Tower.</a></div></li>
-			<li style="display:none;"><div><a href="fact.php?id=668">The <strong>Hoover Institution</strong>, a conservative public policy think tank, is housed partly in Hoover Tower.</a></div></li>
-			<li style="display:none;"><div><a href="fact.php?id=669">Dissident Russian writer <strong>Aleksandr Solzhenitsyn</strong> lived on the 11th floor of Hoover Tower while exiled.</a></div></li> -->
-	</ul>
-</div>
-
-<nav>
-    <span id='position'><em class='on'>&bull;</em><em>&bull;</em><em>&bull;</em><em>&bull;</em></span>
-</nav>
-
 <script src='swipe.js'></script>
 <script>
 	var slider, bullets;
