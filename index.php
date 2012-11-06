@@ -7,9 +7,6 @@
 </form>
 
 <ul id="wikisearch_results" data-role="listview" style="display:none;">
-	<li><a href="acura.html">Acura</a></li>
-	<li><a href="audi.html">Audi</a></li>
-	<li><a href="bmw.html">BMW</a></li>
 </ul>
 
 <div id="map_canvas" style="width:320px; height:288px;"></div> <!-- change width and height here -->
@@ -28,6 +25,7 @@ $(document).ready(function(){
   //the following sets up the map, pins, etc.
   var addresses;
   var map;
+  var last_marker;
 	function setupMap() {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
 	}
@@ -98,6 +96,12 @@ $(document).ready(function(){
 	}
 	
 	function showFacts(e){
+		if(typeof last_marker != 'undefined'){
+			last_marker.setIcon("red-dot.png"); //we set the last one back to red
+		}
+		last_marker = this; // save the current marker
+		this.setIcon("blue-dot.png"); //and then set it to blue, for now
+		
 		// console.log(addresses);
 		$("#slider ul").html(""); //clear out previous
 		address = addresses[this.address];
@@ -147,7 +151,7 @@ $(document).ready(function(){
 				$("#wikisearch_results").css("display","block");
 				for (key in results){
 					result = results[key]["title"];
-					$("#wikisearch_results").append("<li><a href='acura.html'>"+result+"</a></li>")
+					$("#wikisearch_results").append("<li><a href='wikipedia.php?source="+result+"'>"+result+"</a></li>")
 				}
 				$("#wikisearch_results").listview('refresh');
 				
