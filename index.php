@@ -9,7 +9,7 @@
 <ul id="wikisearch_results" data-role="listview" style="display:none;">
 </ul>
 
-<div id="map_canvas" style="width:320px; height:288px;"></div> <!-- change width and height here -->
+<div id="map_canvas" style="width:320px; height:338px;"></div> <!-- change width and height here -->
 
 <div id="slider" class="swipe">
 	<ul>
@@ -30,11 +30,11 @@ $(document).ready(function(){
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
 	}
 	function locationSuccess(position) { //successful location set up
-		var lat = "37.4307151";
-		var long ="-122.1733189";
+		// var lat = "37.4307151";
+		// 	var long ="-122.1733189";
 	
-		// var lat = position.coords.latitude; //my location
-		// var long = position.coords.longitude;
+		var lat = position.coords.latitude; //my location
+		var long = position.coords.longitude;
 
 		var mapOptions = { //map options
 			center: new google.maps.LatLng(lat, long),
