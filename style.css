@@ -39,7 +39,7 @@ p {
 	display:none;
 }
 
-#wikiText .thumbcaption, #wikiText .navbox, #wikiText .reflist, #wikiText .metadata, #wikiText .editsection, #wikiText #References, #wikiText #coordinates, #wikiText sup, #wikiText .infobox, #wikiText dl, #wikiText .toc {
+#wikiText .thumbcaption, #wikiText .navbox, #wikiText .reflist, #wikiText .metadata, .editsection, #wikiText #References, #wikiText #coordinates, #wikiText sup, #wikiText .infobox, #wikiText dl, #wikiText .toc {
 	display:none;
 }
 

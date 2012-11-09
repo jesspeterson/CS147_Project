@@ -20,7 +20,7 @@
 
 <div data-role="footer" data-position="fixed" style="padding:3px;">
 	<a href="index.php" data-role="button" data-rel="back" data-icon="arrow-l">Back</a>
-	<a href="add.php?source=<?php echo $source; ?>" data-role="button" data-icon="plus" style="float:right;">Add Fact</a>
+	<a href="add.php?source=<?php echo $source; ?>" data-role="button" data-icon="plus" style="float:right;" data-transition="pop">Add Fact</a>
 </div>
 
 <?php include('footer.php'); ?>

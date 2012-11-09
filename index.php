@@ -9,7 +9,7 @@
 <ul id="wikisearch_results" data-role="listview" style="display:none;">
 </ul>
 
-<div id="map_canvas" style="width:320px; height:308px;"></div> <!-- change width and height here -->
+<div id="map_canvas" style="width:320px; height:285px;"></div> <!-- change width and height here -->
 
 <div id="slider" class="swipe">
 	<ul>
