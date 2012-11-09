@@ -10,21 +10,16 @@
 	$fact = str_replace("\\", "", $facttext);
 ?>
 
-<p>Page: <?php echo $source; ?></p>
-<p>Fact: <?php echo $fact; ?></p>
-<p>Latitude: <?php echo $lat; ?></p>
-<p>Longitude: <?php echo $lng; ?></p>
-<p>Address: <?php echo $address; ?></p>
-
 <?php
 	$query = "INSERT INTO  `wikitour` (
 		`fact` ,
 		`source` ,
 		`lat` ,
-		`long`
+		`long`,
+		`address`
 		)
 		VALUES (
-		'$fact',  '$source', '$lat',  '$lng'
+		'$fact',  '$source', '$lat',  '$lng', '$address'
 		)";
 	
 	$result = mysql_query($query);

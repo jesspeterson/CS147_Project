@@ -19,15 +19,16 @@
 	function storePosition(position)
 	{
 		lat = position.coords.latitude.toFixed(7);
-		lng = position.coords.longitude.toFixed(7);				
+		lng = position.coords.longitude.toFixed(7);	
+		
+		console.log(lat+","+lng);
+	$.getJSON("revgeocode.php?latlng="+lat+","+lng, function(data) {
+		console.log(data);
+		address = data.results[0].formatted_address;
+	});			
 	}
 	getLocation();
 
-	$.getJSON("http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true", function(data) {
-		console.log(data);
-	//	address = data.results[0].formatted_address;
-	//	$("#addressText").html(address);
-	});
 
 	function setLoc(){
     	document.addfact.latitude.value = lat;
