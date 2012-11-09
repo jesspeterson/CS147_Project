@@ -170,9 +170,9 @@ $(document).ready(function(){
 		get_results($('#searchfield').val());
 	});
 	
-	$('#searchfield').blur(function() {
-		$("#wikisearch_results").css("display","none");
-	});
+	// $('#searchfield').blur(function() {
+		// $("#wikisearch_results").css("display","none");
+	// });
 	
 	// get_results("hoover");
 });
