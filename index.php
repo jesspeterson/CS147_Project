@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
 
-<form id="wikisearch" action="search.php">
+<form id="wikisearch" action="search.php" data-ajax="false" class="noEnterSubmit">
 	<input id="searchfield" type="search" placeholder="Search Wikipedia" onsubmit="preventDefault();" />
 </form>
 
@@ -18,10 +18,14 @@
 </div>
 
 <nav>
-    <span id='position'><em class='on'>&bull;</em><em>&bull;</em><em>&bull;</em><em>&bull;</em></span>
+    <span id='position'></span>
 </nav>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('.noEnterSubmit').keypress(function(e){
+	    if ( e.which == 13 ) return false;
+	});
+	
   //the following sets up the map, pins, etc.
   var addresses;
   var map;
@@ -109,19 +113,27 @@ $(document).ready(function(){
 		var i = 0;
 		for(key in address){
 			fact = address[key];
-				if(i==0){
-					$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
-				}else {
-					$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
-				}
-				i++;
+			if(i==0){
+				$("#slider ul").append("<li style='display:block;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
+			}else {
+				$("#slider ul").append("<li style='display:none;'><div><a href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
+			}
+			i++;
 		}
-		
-		var slider, bullets;
+		$("#position").append("<em class='on'>&bull;</em>");
+   	while($("#position").children().size() < $("#slider ul").children().size()){
+		$("#position").append("<em>&bull;</em>");
+	}
 		$(document).ready(function(){
+			// bullets.length = 
+			
 		 	slider = new Swipe(document.getElementById('slider'), {
 	      	callback: function(e, pos) {
-
+				console.log(123);
+					$("#position").append("<em class='on'>&bull;</em>");
+		       	while($("#position").children.size() > $("#slider ul").children().size()){
+					$("#position").append("<em>&bull;</em>");
+		       	}
 	        var i = bullets.length;
 	        while (i--) {
 	          bullets[i].className = ' ';
@@ -131,6 +143,7 @@ $(document).ready(function(){
 	      }
 	    }),
 	    bullets = document.getElementById('position').getElementsByTagName('em');
+	
 		});
 	}
 	
@@ -175,12 +188,12 @@ $(document).ready(function(){
 	$(document).ready(function(){
 	 	slider = new Swipe(document.getElementById('slider'), {
       	callback: function(e, pos) {
-        
-        var i = bullets.length;
-        while (i--) {
-          bullets[i].className = ' ';
-        }
-        bullets[pos].className = 'on';
+		
+        // var i = bullets.length;
+        //       while (i--) {
+        //         bullets[i].className = ' ';
+        //       }
+        //       bullets[pos].className = 'on';
 
       }
     }),
