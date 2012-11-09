@@ -24,7 +24,7 @@
 
 </div>
 
-<div data-role="footer" style="padding:3px;">
+<div data-role="footer" data-position="fixed" style="padding:3px;">
 	<a href="index.php" data-role="button" data-rel="back" data-icon="arrow-l">Back</a>
 	<a href="wikiview.php?page=<?php echo $source; ?>" data-role="button" data-icon="arrow-r" style="float:right;">Wiki Page</a>
 </div>
