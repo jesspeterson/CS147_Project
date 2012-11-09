@@ -120,27 +120,22 @@ $(document).ready(function(){
 			}
 			i++;
 		}
+		$("#position").html("");
 		$("#position").append("<em class='on'>&bull;</em>");
    	while($("#position").children().size() < $("#slider ul").children().size()){
 		$("#position").append("<em>&bull;</em>");
 	}
 		$(document).ready(function(){
-			// bullets.length = 
 			
 		 	slider = new Swipe(document.getElementById('slider'), {
-	      	callback: function(e, pos) {
-				console.log(123);
-					$("#position").append("<em class='on'>&bull;</em>");
-		       	while($("#position").children.size() > $("#slider ul").children().size()){
-					$("#position").append("<em>&bull;</em>");
-		       	}
-	        var i = bullets.length;
-	        while (i--) {
-	          bullets[i].className = ' ';
-	        }
-	        bullets[pos].className = 'on';
+		 		      	callback: function(e, pos) {
+		 		        var i = bullets.length;
+		 		        while (i--) {
+		 		          bullets[i].className = ' ';
+		 		        }
+		 		        bullets[pos].className = 'on';
 
-	      }
+	      			}
 	    }),
 	    bullets = document.getElementById('position').getElementsByTagName('em');
 	
