@@ -14,6 +14,7 @@
 			page:"<?php echo $source; ?>", prop:"text"
 		}, function(data) {
 		var content = data.parse.text['*'];
+		content = content.replace(/href=\"\/wiki\//g, "href=\"wikipedia.php?source=");
 		$("#wikiText").html(content);
 	});
 </script>
@@ -26,7 +27,7 @@
 
 <div data-role="footer" data-position="fixed" style="padding:3px;">
 	<a href="index.php" data-role="button" data-rel="back" data-icon="arrow-l">Back</a>
-	<a href="wikiview.php?page=<?php echo $source; ?>" data-role="button" data-icon="arrow-r" style="float:right;">Wiki Page</a>
+	<a href="wikipedia.php?source=<?php echo $source; ?>" data-role="button" data-icon="arrow-r" style="float:right;">Wiki Page</a>
 </div>
 
 <?php include('footer.php'); ?>

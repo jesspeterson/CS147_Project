@@ -1,5 +1,6 @@
 <?php 
-	include('header.php'); 
+	include('header.php');
+	$source = $_GET["source"];
 ?>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true"></script>
@@ -40,12 +41,12 @@
 
 <p id="factguide">The quality of the facts you enter is what makes WikiTour great.  Make sure your fact is a positive and interesting contribution to the WikiTour community.</p>
 <form id="addfact" name="addfact" action="submitfact.php" method="post" data-ajax="false">
-	<input type="text" name="sourcepage" placeholder="Wikipedia Article Title" />
-	<textarea name="facttext" maxlength="140" placeholder="Enter your fact&mdash;why should visitors here see this article?"></textarea>
+	<input type="hidden" name="sourcepage" value="<?php echo $source; ?>" />
+	<textarea name="facttext" maxlength="120" placeholder="Enter your fact&mdash;why will visitors here want to learn about <?php echo $source; ?>?"></textarea>
 	<input type="hidden" name="latitude" value="">
 	<input type="hidden" name="longitude" value="">
 	<input type="hidden" name="address" value="">
-	<input type="button" value="Use My Location" onclick="setLoc();"/>
+	<input type="button" value="Pin fact to my location" onclick="setLoc();"/>
 </form>
 <div id="addressText"></div>
 

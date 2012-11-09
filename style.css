@@ -39,7 +39,7 @@ p {
 	display:none;
 }
 
-#wikiText .thumbcaption, .navbox, .reflist, .metadata, .editsection, #References, #coordinates, sup, .infobox, #wikiText dl {
+#wikiText .thumbcaption, #wikiText .navbox, #wikiText .reflist, #wikiText .metadata, #wikiText .editsection, #wikiText #References, #wikiText #coordinates, #wikiText sup, #wikiText .infobox, #wikiText dl, #wikiText .toc {
 	display:none;
 }
 
@@ -137,4 +137,8 @@ nav {
 	padding:5px;
 	font-style:italic;
 	margin-bottom:15px;
+}
+
+#wikiPage {
+	background-color:#ffffff;
 }
