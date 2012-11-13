@@ -167,9 +167,16 @@ $(document).ready(function(){
 	}
 	
 	$('#searchfield').keyup(function() {
+		if($('#searchfield').val() == ''){
+			$("#wikisearch_results").css("display","none");
+			return;
+		}
 		get_results($('#searchfield').val());
 	});
 	
+	$('.ui-input-clear').on('click', function(e){ //the clear search button
+	    $("#wikisearch_results").css("display","none");
+	});
 	// $('#searchfield').blur(function() {
 		// $("#wikisearch_results").css("display","none");
 	// });
