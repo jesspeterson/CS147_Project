@@ -1,5 +1,5 @@
 <?php
-$searchterm = $_REQUEST['searchterm'];
+$searchterm = urlencode($_REQUEST['searchterm']);
 $url="http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=".$searchterm."&srprop=timestamp&format=json"; ///&limit=3
 
 $ch = curl_init($url);
