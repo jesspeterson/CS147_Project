@@ -13,7 +13,7 @@
 
 <div id="slider" class="swipe">
 	<ul>
-		<li style="display:block;"><div><a href="fact.php?id=666"><p>Welcome to Wikitour! Click a pin to start exploring.</p></a></div></li>
+		<li style="display:block;"><div><p>Welcome to Wikitour! Click a pin to start exploring.</p></div></li>
 	</ul>
 </div>
 

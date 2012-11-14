@@ -15,6 +15,7 @@
 			page:"<?php echo $source; ?>", prop:"text"
 		}, function(data) {
 		var content = data.parse.text['*'];
+		content = content.replace(/href=\"\/wiki\//g, "href=\"wikipedia.php?source=");
 		$("#wikiText").html(content);
 	});
 
@@ -27,7 +28,7 @@
 </div>
 
 <div data-role="footer" data-position="fixed" style="padding:3px;">
-	<a href="index.php" data-role="button" data-rel="back" data-icon="arrow-l">Back</a>
+	<a href="index.php" data-role="button" data-rel="back" data-ajax="false" data-icon="arrow-l">Home</a>
 	
 	
 	<button type="submit" id="like_button" data-icon="check" value="Like"></button>
@@ -35,10 +36,18 @@
 	//<input type="button" img><id="like_image" src="like1.png"></input>-->
 	
 	
-	<a href="wikiview.php?page=<?php echo $source; ?>" data-role="button" data-icon="arrow-r" style="float:right;">Wiki Page</a>
+	<a href="wikipedia.php?source=<?php echo $source; ?>" data-role="button" data-icon="arrow-r" style="float:right;">Wiki Page</a>
 </div>
 
 <script>
+	function handleClick(e) {
+		var target = $(e.target).closest('a');
+		if( target ) {
+			e.preventDefault();
+			window.location = target.attr('href');
+		}
+	}
+	
 	$('#like_button').click( function() {
 		if ($('#like_button').attr("data-theme") != "b") {
 			$('#like_button').buttonMarkup({theme: "b"});

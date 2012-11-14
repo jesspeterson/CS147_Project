@@ -8,6 +8,7 @@
 	$address = $_POST["address"];
 	$source = str_replace(" ", "_", $sourcepage);
 	$fact = str_replace("\\", "", $facttext);
+	$fact = str_ireplace($sourcepage, "<strong>".$sourcepage."</strong>", $fact);
 ?>
 
 <?php
@@ -32,6 +33,8 @@
 	}
 ?>
 
+<div class="navbutton">
 <a href="index.php"><button>Home</button></a>
+</div>
 
 <?php include('footer.php'); ?>

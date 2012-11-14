@@ -50,7 +50,7 @@ p {
 
 form {margin-left: 7px; margin-right: 7px;}
 
-.swipe li div, .swipeOld div div div {
+.swipe li div, .swipe div div div {
   	margin:7px;
   	padding:10px;
   	background:#ffffff;
@@ -141,4 +141,8 @@ nav {
 
 #wikiPage {
 	background-color:#ffffff;
+}
+
+.navbutton {
+	margin:7px;
 }
