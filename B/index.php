@@ -1,6 +1,7 @@
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
+<script src="//cdn.optimizely.com/js/139129426.js"></script>
 
 
 
@@ -8,7 +9,7 @@
 
 <div id="slider" class="swipe">
 	<ul>
-		<li style="display:block;"><div><p onclick="location.reload(true);">Welcome to Wikitour! Click a pin to start exploring, or search Wikipedia for facts to add.</p></div></li>
+		<li style="display:block;"><div><p onclick="location.reload(true);">Welcome to Wikitour! Click a pin to start exploring.</p></div></li>
 	</ul>
 </div>
 
