@@ -19,8 +19,7 @@
 
 <nav>
     <span id='position'></span>
-    <a href='#' id='prev' onclick='slider.prev();return false;'>prev</a>
-    <a href='#' id='next' onclick='slider.next();return false;'>next</a>
+    <span id='navlinks'></span>
 </nav>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -116,9 +115,9 @@ $(document).ready(function(){
 		for(key in address){
 			fact = address[key];
 			if(i==0){
-				$("#slider ul").append("<li style='display:block;'><div><a data-transition='slide' href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
+				$("#slider ul").append("<li style='display:block;'><div><a data-transition='slide' href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+" <span class='more'>more</span></p></a></div></li>")
 			}else {
-				$("#slider ul").append("<li style='display:none;'><div><a data-transition='slide' href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+"</p></a></div></li>")
+				$("#slider ul").append("<li style='display:none;'><div><a data-transition='slide' href='fact.php?id="+fact["id"]+"'><p>"+fact['fact']+" <span class='more'>more</span></p></a></div></li>")
 			}
 			i++;
 		}
@@ -127,6 +126,7 @@ $(document).ready(function(){
    	while($("#position").children().size() < $("#slider ul").children().size()){
 		$("#position").append("<em>&bull;</em>");
 	}
+	$("#navlinks").html("<a href='#' id='prev' onclick='slider.prev();return false;'>prev</a><a href='#' id='next' onclick='slider.next();return false;'>next</a>");
 		$(document).ready(function(){
 			
 		 	slider = new Swipe(document.getElementById('slider'), {

@@ -10,6 +10,19 @@ p {
 	float:right;
 }
 
+.more {
+	color:blue;
+	text-decoration:underline;
+}
+
+nav {
+	max-width:320px;
+}
+
+form {
+	max-width:320px;
+}
+
 #map_canvas {
 	position:relative;
 	top:0px;
