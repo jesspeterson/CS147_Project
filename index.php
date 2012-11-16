@@ -1,7 +1,6 @@
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
-<script src="//cdn.optimizely.com/js/139129426.js"></script>
 
 <form id="wikisearch" action="search.php" data-ajax="false" class="noEnterSubmit">
 	<input id="searchfield" type="search" placeholder="Search Wikipedia" onsubmit="preventDefault();" />

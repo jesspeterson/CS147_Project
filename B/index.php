@@ -1,9 +1,6 @@
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
-<script src="//cdn.optimizely.com/js/139129426.js"></script>
-
-
 
 <div id="map_canvas" style="width:320px; height:285px;"></div> <!-- change width and height here -->
 

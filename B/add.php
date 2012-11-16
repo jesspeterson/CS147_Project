@@ -5,6 +5,10 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true"></script>
 <script>
+window.optimizely = window.optimizely || [];
+window.optimizely.push(['trackEvent', 'added_fact']);
+</script>
+<script>
 
 	var lat = 0.0;
 	var lng = 0.0;
