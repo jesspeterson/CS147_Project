@@ -124,16 +124,11 @@ $(document).ready(function(){
 		}
 		$("#position").html("");
 		$("#position").append("<em class='on'>&bull;</em>");
-<<<<<<< HEAD
    	while($("#position").children().size() < $("#slider ul").children().size()){
 		$("#position").append("<em>&bull;</em>");
 	}
 	$("#navlinks").html("<a href='#' id='prev' onclick='slider.prev();return false;'>prev</a><a href='#' id='next' onclick='slider.next();return false;'>next</a>");
-=======
-   		while($("#position").children().size() < $("#slider ul").children().size()){
-			$("#position").append("<em>&bull;</em>");
-		}
->>>>>>> added google analytics, optimizely
+  
 		$(document).ready(function(){
 			
 		 	slider = new Swipe(document.getElementById('slider'), {
