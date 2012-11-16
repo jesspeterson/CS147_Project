@@ -1,6 +1,7 @@
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
+<script src="//cdn.optimizely.com/js/139129426.js"></script>
 
 <form id="wikisearch" action="search.php" data-ajax="false" class="noEnterSubmit">
 	<input id="searchfield" type="search" placeholder="Search Wikipedia" onsubmit="preventDefault();" />
@@ -27,10 +28,10 @@ $(document).ready(function(){
 	    if ( e.which == 13 ) return false;
 	});
 	
-  //the following sets up the map, pins, etc.
-  var addresses;
-  var map;
-  var last_marker;
+    //the following sets up the map, pins, etc.
+	var addresses;
+	var map;
+	var last_marker;
 	function setupMap() {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
 	}
@@ -123,10 +124,16 @@ $(document).ready(function(){
 		}
 		$("#position").html("");
 		$("#position").append("<em class='on'>&bull;</em>");
+<<<<<<< HEAD
    	while($("#position").children().size() < $("#slider ul").children().size()){
 		$("#position").append("<em>&bull;</em>");
 	}
 	$("#navlinks").html("<a href='#' id='prev' onclick='slider.prev();return false;'>prev</a><a href='#' id='next' onclick='slider.next();return false;'>next</a>");
+=======
+   		while($("#position").children().size() < $("#slider ul").children().size()){
+			$("#position").append("<em>&bull;</em>");
+		}
+>>>>>>> added google analytics, optimizely
 		$(document).ready(function(){
 			
 		 	slider = new Swipe(document.getElementById('slider'), {
