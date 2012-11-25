@@ -1,3 +1,12 @@
+<?php
+	include('config.php');
+	$version = $_COOKIE["wikitour_version"];
+	$start = $_COOKIE["wikitour_time"];
+	date_default_timezone_set('America/Los_Angeles');
+	$end = date("Y-m-d H:i:sP");
+	$sql = "insert into ab_test(version,start_time,end_time) values('$version','$start','$end')";
+	$result = mysql_query($sql);
+?>
 <?php 
 	include('header.php');
 	$source = $_GET["source"];
