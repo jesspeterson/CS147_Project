@@ -20,7 +20,7 @@
     <span id='navlinks'></span>
 </nav>
 
-<div id="wikibutton"><a data-role="button" href="wikipedia.php?source=Main_Page">Add Facts from Wikipedia</a></div>
+<div id="wikibutton"><a data-role="button" data-ajax="false" href="wikipedia.php?source=Main_Page">Add Facts from Wikipedia</a></div>
 
 <script type="text/javascript">
 $(document).ready(function(){
