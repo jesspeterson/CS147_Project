@@ -40,11 +40,11 @@ $(document).ready(function(){
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
 	}
 	function locationSuccess(position) { //successful location set up
-		// var lat = "37.4307151";
-		// 	var long ="-122.1733189";
+			//var lat = "37.4307151";
+			// var long ="-122.1733189";
 	
 		var lat = position.coords.latitude; //my location
-		var long = position.coords.longitude;
+		var long = position.coords.longitude;	
 
 		var mapOptions = { //map options
 			center: new google.maps.LatLng(lat, long),
@@ -56,7 +56,16 @@ $(document).ready(function(){
 		};
 		
 		map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-			
+		
+		//locate yourself on map
+			var latlong = new google.maps.LatLng(lat, long);
+			var marker = new google.maps.Marker({
+			    position: latlong, 
+			    map: map, 
+			    title:"",
+				icon:"blue_dot_circle.png"
+			});
+		
 		$.ajax({ //look up facts
 		  type: "POST",
 		  url: "nearby_facts.php",
@@ -185,11 +194,6 @@ $(document).ready(function(){
 	$('.ui-input-clear').on('click', function(e){ //the clear search button
 	    $("#wikisearch_results").css("display","none");
 	});
-	// $('#searchfield').blur(function() {
-		// $("#wikisearch_results").css("display","none");
-	// });
-	
-	// get_results("hoover");
 });
 </script>
 <script src='swipe.js'></script>
