@@ -8,7 +8,7 @@
 	
 	function handleClick(e) {
 		var target = $(e.target).closest('a');
-		if( target ) {
+		if( target && target.attr('href')) {
 			e.preventDefault();
 			window.location = target.attr('href');
 		}

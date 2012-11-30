@@ -60,7 +60,7 @@ window.optimizely.push(['trackEvent', 'added_fact']);
     	document.addfact.latitude.value = lat;
     	document.addfact.longitude.value = lng;
     	document.addfact.address.value = address;
-    	document.forms["addfact"].submit();
+    	setTimeout(function(){document.forms["addfact"].submit();}, 1000);
     }
 
 	$('#facttext').keydown(function() {

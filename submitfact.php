@@ -26,10 +26,10 @@
 	$result = mysql_query($query);
 	
 	if ($result) {
-		echo "<p>Thanks! Your fact has been added.</p>";
+		echo "<p class='success'>Thanks! Your fact has been added.</p>";
 	}
 	else {
-		echo "<p>Something went wrong. Sorry!</p>";
+		echo "<p class='failure'>Something went wrong. Sorry!</p>";
 	}
 ?>
 

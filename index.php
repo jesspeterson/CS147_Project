@@ -18,7 +18,7 @@
 
 <div id="slider" class="swipe">
 	<ul>
-		<li style="display:block;"><div><p onclick="location.reload(true);">Welcome to Wikitour! Click a pin to start exploring, or search Wikipedia for facts to add.</p></div></li>
+		<li style="display:block;"><div><p onclick="location.reload(true);">Welcome to Wikitour! Click a pin to start exploring, or pin new facts to your location by searching for relevant articles on Wikipedia.</p></div></li>
 	</ul>
 </div>
 
