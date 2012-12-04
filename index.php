@@ -140,7 +140,7 @@ $(document).ready(function(){
    	while($("#position").children().size() < $("#slider ul").children().size()){
 		$("#position").append("<em>&bull;</em>");
 	}
-	$("#navlinks").html("<a href='#' id='prev' onclick='slider.prev();return false;'>prev</a><a href='#' id='next' onclick='slider.next();return false;'>next</a>");
+	//$("#navlinks").html("<a href='#' id='prev' onclick='slider.prev();return false;'>prev</a><a href='#' id='next' onclick='slider.next();return false;'>next</a>");
   
 		$(document).ready(function(){
 			
