@@ -15,6 +15,7 @@
 	<link rel="apple-touch-startup-image" sizes="320x480" href="startup.png" />
 	<link rel="apple-touch-startup-image" sizes="640x960" href="startupRetina.png" />
 	<link rel="apple-touch-startup-image" sizes="640x1136" href="startuptall.png" />
+<!--	<script src="http://jsconsole.com/remote.js?DE336DB7-DC2A-4EB5-BEF1-006C0F8D9C73"></script>-->
 </head> 
 
 

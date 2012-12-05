@@ -31,16 +31,29 @@ $(document).ready(function(){
 	var addresses;
 	var map;
 	var last_marker;
-	function setupMap() {
-		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
-	}
-	function locationSuccess(position) { //successful location set up
-			//var lat = "37.4307151";
-			// var long ="-122.1733189";
 	
-		var lat = position.coords.latitude; //my location
-		var long = position.coords.longitude;	
+	var location_timeout = setTimeout(function(){locationFail();}, 1000);
+	
+	function setupMap() {
+		console.log("setupmap");
+		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
+	}	
 
+	function locationSuccess(position) { //successful location set up
+		clearTimeout(location_timeout);
+		console.log('location success');
+		load_map(position.coords.latitude,position.coords.longitude)
+	}
+	
+	function locationFail() { //failed location look up
+		clearTimeout(location_timeout);
+		var lat = "37.4307151";
+		var long ="-122.1733189";
+		load_map(lat,long)
+		console.log("couldn't find you");
+	}
+	
+	function load_map(lat,long){
 		var mapOptions = { //map options
 			center: new google.maps.LatLng(lat, long),
 			zoom: 16,
@@ -67,7 +80,6 @@ $(document).ready(function(){
 		  data: { lat: lat, long: long }
 		}).done(function( addresses_json ) {
 			addresses = jQuery.parseJSON(addresses_json);
-			// console.log(addresses);
 			for (var key in addresses) {
 				var address = addresses[key];
 				for(var sub_key in address){ //this loop is designed to just grab the first address and then break
@@ -79,7 +91,6 @@ $(document).ready(function(){
 	}
 	
 	function place_marker(lat,long,address){
-		// console.log("placing");
 		var latlong = new google.maps.LatLng(lat, long);
 		var marker = new google.maps.Marker({
 		    position: latlong, 
@@ -88,12 +99,7 @@ $(document).ready(function(){
 			address:address,
 			// addresses:addresses
 		});
-		// console.log(address);
 		google.maps.event.addListener(marker, 'click', showFacts);
-	}
-
-	function locationFail() { //failed location look up
-		alert('Oops, could not find you.');
 	}
 	
 	function getPropertyCount(obj) {
@@ -152,10 +158,7 @@ $(document).ready(function(){
 	    bullets = document.getElementById('position').getElementsByTagName('em');
 	
 		});
-	}
-	
-	setupMap();
-	
+	}	
 	//this is the code to setup the wikisearch, autocompletion, etc
 	function get_results(searchterm){
 		var results;
@@ -189,6 +192,11 @@ $(document).ready(function(){
 	$('.ui-input-clear').on('click', function(e){ //the clear search button
 	    $("#wikisearch_results").css("display","none");
 	});
+	
+	setupMap();
+	// map = new google.maps.Map(document.getElementById("map_canvas"));
+	
+	
 });
 </script>
 <script src='swipe.js'></script>
