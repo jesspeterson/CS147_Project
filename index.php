@@ -1,8 +1,3 @@
-<?php
-	setcookie('wikitour_version','a');
-	date_default_timezone_set('America/Los_Angeles');
-	setcookie('wikitour_time',date("Y-m-d H:i:sP"));
-?>
 <?php include('header.php'); ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
