@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
 </script>
 
 <form id="wikisearch" action="search.php" data-ajax="false" class="noEnterSubmit">
@@ -54,8 +54,8 @@ $(document).ready(function(){
 	
 	function locationFail() { //failed location look up
 		clearTimeout(location_timeout);
-		var lat = "37.4307151";
-		var long ="-122.1733189";
+		var lat = "37.426295";
+		var long ="-122.171893";
 		load_map(lat,long)
 		console.log("couldn't find you");
 	}
