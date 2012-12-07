@@ -2,9 +2,6 @@
 	include('header.php');
 	$source = $_GET["source"];
 ?>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true"></script>
-
 <p id="factguide">The quality of the facts you enter is what makes WikiTour great. Make sure your fact is a positive and interesting contribution to the WikiTour community.</p>
 <form id="addfact" name="addfact" action="submitfact.php" method="post" data-ajax="false" >
 	<input type="hidden" name="sourcepage" value="<?php echo str_replace("_", " ", $source); ?>" />

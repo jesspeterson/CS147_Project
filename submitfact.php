@@ -4,9 +4,9 @@
 	$sourcepage = $_POST["sourcepage"];
 	$facttext = $_POST["facttext"];
 	$lat = (double) $_POST["latitude"];
-	$lat = "37.426295";
-	// $lng = (double) $_POST["longitude"];
-	$lng = "-122.171893";
+	// $lat = "37.426295";
+	$lng = (double) $_POST["longitude"];
+	// $lng = "-122.171893";
 	$address = $_POST["address"];
 	$source = str_replace(" ", "_", $sourcepage);
 	$fact = str_replace("\\", "", $facttext);
