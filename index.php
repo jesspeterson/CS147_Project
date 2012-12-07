@@ -36,7 +36,14 @@ $(document).ready(function(){
 	
 	function setupMap() {
 		console.log("setupmap");
-		navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
+		if (navigator.geolocation)
+	    {
+			console.log('defined');
+			navigator.geolocation.getCurrentPosition(locationSuccess, locationFail); //get the location 
+	    } else{
+			console.log('undefined');
+			locationFail();
+		}
 	}	
 
 	function locationSuccess(position) { //successful location set up
