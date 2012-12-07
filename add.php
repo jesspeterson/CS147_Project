@@ -19,7 +19,7 @@
 	<a href="index.html" data-role="button" data-rel="back">Cancel</a>
 </div>
 <script>
-
+	var location_timeout = setTimeout(function(){locationFail();}, 1000);
 	var lat = 0.0;
 	var lng = 0.0;
 	var address = "";
@@ -28,12 +28,26 @@
 		console.log(1);
 		if (navigator.geolocation)
 		{
-		navigator.geolocation.getCurrentPosition(storePosition);
+		navigator.geolocation.getCurrentPosition(storePosition,locationFail);
+		} else {
+			locationFail();
 		}
-		else{x.innerHTML="Geolocation is not supported by this browser.";}
 	}
+	
+	function locationFail() { //failed location look up
+		clearTimeout(location_timeout);
+		var lat = "37.426295";
+		var long ="-122.171893";
+		var position;
+		position.coords.latitude = lat;
+		position.coords.longitude = long;
+		storePosition(position);
+		console.log("couldn't find you");
+	}
+	
 	function storePosition(position)
 	{
+		clearTimeout(location_timeout);
 		lat = position.coords.latitude.toFixed(7);
 		lng = position.coords.longitude.toFixed(7);	
 		console.log(lat);

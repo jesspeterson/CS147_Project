@@ -1,6 +1,4 @@
 <?php include('header.php'); ?>
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true">
-</script>
 
 <form id="wikisearch" action="search.php" data-ajax="false" class="noEnterSubmit">
 	<input id="searchfield" type="search" placeholder="Search Wikipedia" onsubmit="preventDefault();" />

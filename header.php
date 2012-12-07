@@ -5,6 +5,7 @@
 	<title>CS147 project</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwiHi6BAeRu7z44MIb8VTAxeyVe7WLvjo&sensor=true"></script>
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,7 +16,7 @@
 	<link rel="apple-touch-startup-image" sizes="320x480" href="startup.png" />
 	<link rel="apple-touch-startup-image" sizes="640x960" href="startupRetina.png" />
 	<link rel="apple-touch-startup-image" sizes="640x1136" href="startuptall.png" />
-	<script src="http://jsconsole.com/remote.js?B8C46942-659A-4FD0-A552-A58B6B4E5FA2"></script>
+<!--	<script src="http://jsconsole.com/remote.js?B8C46942-659A-4FD0-A552-A58B6B4E5FA2"></script>-->
 	
 </head> 
 
